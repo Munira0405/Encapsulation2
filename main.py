@@ -3,7 +3,6 @@ from abc import ABC, abstractmethod
 from datetime import datetime
 
 
-# Abstract base class for services
 class Service(ABC):
     def __init__(self, service_id, name, price):
         self.service_id = service_id
@@ -15,7 +14,6 @@ class Service(ABC):
         pass
 
 
-# Concrete service classes
 class Haircut(Service):
     def description(self):
         return f"A stylish haircut for a fresh look. Price: ${self.price}"
@@ -31,7 +29,7 @@ class Massage(Service):
         return f"A soothing massage to relieve stress and tension. Price: ${self.price}"
 
 
-# Customer class to hold customer data
+
 class Customer:
     def __init__(self, name, phone):
         self.name = name
@@ -41,7 +39,7 @@ class Customer:
         return f"Customer Name: {self.name}, Phone: {self.phone}"
 
 
-# Appointment class to handle booking
+
 class Appointment:
     def __init__(self, customer, service, date_time):
         self.customer = customer
@@ -52,7 +50,7 @@ class Appointment:
         return f"Appointment for {self.customer.name} on {self.date_time} for {self.service.name}."
 
 
-# BeautySalon class to manage services, customers, and appointments
+
 class BeautySalon:
     def __init__(self, services_file):
         self.services = self.load_services(services_file)
@@ -102,7 +100,7 @@ class BeautySalon:
             print(appointment.details())
 
 
-# Main function
+
 def main():
     salon = BeautySalon('services.json')
 
@@ -145,6 +143,6 @@ def main():
             print("Invalid choice. Please try again.")
 
 
-# Run the application
+
 if __name__ == "__main__":
     main()
